@@ -269,4 +269,16 @@ class SossoldiDatabase {
     final path = join(databasePath, 'sossoldi.db');
     databaseFactory.deleteDatabase(path);
   }
+
+Future<List<Map<String, dynamic>>> searchTransactions(String a) async {
+  final database = await SossoldiDatabase.instance.database;
+  
+  // Define your SQL query to retrieve data from the transaction table
+  final query = 'SELECT * FROM `$transactionTable` WHERE note LIKE ?'; // Enclose table name in backticks
+  
+  // Execute the query and retrieve the results as a List of Maps
+  final List<Map<String, dynamic>> transactions = await database.rawQuery(query, ['%$a%']);
+    
+  return transactions; // You can return the data if needed for further processing or display.
+}
 }

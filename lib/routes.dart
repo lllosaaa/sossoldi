@@ -18,6 +18,8 @@ import 'pages/settings_page.dart';
 import 'pages/statistics_page.dart';
 import 'pages/structure.dart';
 import 'pages/transactions_page/transactions_page.dart';
+import 'pages/search_page/widget/Search.dart';
+
 
 Route<dynamic> makeRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -29,6 +31,8 @@ Route<dynamic> makeRoute(RouteSettings settings) {
       return _materialPageRoute(settings.name, const AddPage());
     case '/transactions':
       return _materialPageRoute(settings.name, const TransactionsPage());
+    case '/search':
+      return _materialPageRoute(settings.name, const Search());
     case '/category-list':
       return _cupertinoPageRoute(settings.name, const CategoryList());
     case '/add-category':
